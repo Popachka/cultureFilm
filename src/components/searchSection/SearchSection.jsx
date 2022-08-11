@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearSearch, setValueSearch } from '../../redux/slice/searchSlice';
 import debounce from 'debounce';
 import { useCallback } from 'react';
+import DropMenu from './DropMenu';
 function SearchSection() {
   const dispatch = useDispatch();
-  const { value } = useSelector((state) => state.search);
+  const { value, selected } = useSelector((state) => state.search);
+  const countryItems = useSelector((state) => state.country.countryItems);
   const updateSearchValue = useCallback(
     debounce((newValue) => {
       dispatch(setValueSearch(newValue));
@@ -57,8 +59,23 @@ function SearchSection() {
               </g>
             </svg>
           )}
-
-          <input type="text" value={value} onChange={onChangeInput} placeholder="Russian/Россия" />
+          <div class="search__menu">
+            <input
+              type="text"
+              value={value}
+              onChange={onChangeInput}
+              placeholder="Russian/Россия"
+            />
+            <ul class="search__flags">
+              {countryItems &&
+                value !== '' &&
+                selected === 0 &&
+                countryItems.map((obj, i) => {
+                  return <DropMenu key={i} {...obj} />;
+                })}
+            </ul>
+          </div>
+          {/* <input type="text" value={value} onChange={onChangeInput} placeholder="Russian/Россия" /> */}
         </div>
       </div>
     </section>
