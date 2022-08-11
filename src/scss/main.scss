@@ -1,0 +1,14 @@
+// базовые подключения
+@import "vars";
+@import "mixins";
+@import "fonts";
+@import "settings";
+
+// подключения компонентов страницы
+// @import "./components/header";
+// @import "./components/nav";
+// @import "./components/shop-nav";
+@import "./components/header.scss";
+@import "./components/searchSection.scss";
+@import "./components/filmsSection.scss";
+@import "./components/footer.scss";

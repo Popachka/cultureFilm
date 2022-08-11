@@ -1,0 +1,47 @@
+.searchSection {
+  padding-top: 150px;
+}
+.container {
+}
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.search {
+  // .search__title
+
+  &__title {
+    font-size: 42px;
+  }
+
+  // .search__subtitle
+
+  &__subtitle {
+    font-size: 18px;
+    color: gray;
+    padding-top: 20px;
+  }
+}
+.search {
+  // .film__input
+  &__icon {
+    position: absolute;
+    margin-left: 10px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+  &__input {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 30px;
+    & input {
+      width: 600px;
+      height: 50px;
+      text-align: center;
+      border-radius: 17px;
+    }
+  }
+}

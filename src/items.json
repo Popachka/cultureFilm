@@ -1,0 +1,37 @@
+[
+  {
+    "id": 0,
+    "country": "USA",
+    "title": "The Batman",
+    "posters": "batman.jpg",
+    "flag": "us.png"
+  },
+  {
+    "id": 1,
+    "country": "USA",
+    "title": "Joker(2019)",
+    "posters": "joker(2019).jpg",
+    "flag": "us.png"
+  },
+  {
+    "id": 2,
+    "country": "Russian",
+    "title": "Кухня последняя битва",
+    "posters": "KuhnyaPoslednyaBitva.jpg",
+    "flag": "ru.png"
+  },
+  {
+    "id": 3,
+    "country": "Russian",
+    "title": "Кухня в Париже",
+    "posters": "KuhnyaPoslednyaBitva.jpg",
+    "flag": "ru.png"
+  },
+  {
+    "id": 4,
+    "country": "Russian",
+    "title": "Отель Элеон (2015)",
+    "posters": "otel-eleon.jpg",
+    "flag": "ru.png"
+  }
+]
