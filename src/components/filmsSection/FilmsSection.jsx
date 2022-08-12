@@ -13,7 +13,6 @@ function FilmsSection() {
   const selected = useSelector((state) => state.search.selected);
   const countryItems = useSelector((state) => state.country.countryItems);
   const countryNames = useMemo(() => {
-    console.log(countryItems);
     const newItems = countryItems.map((obj) => obj.country);
     return newItems;
   }, [countryItems]);
@@ -34,7 +33,6 @@ function FilmsSection() {
         {selected === 1 &&
           items &&
           items.map((obj, i) => {
-            console.log(obj);
             return <Card key={i} {...obj} />;
           })}
       </div>

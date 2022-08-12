@@ -39,5 +39,5 @@ const filmsSlice = createSlice({
     },
   },
 });
-export const { filterItems } = filmsSlice.actions;
+export const { filterItems, setOpen, setClose } = filmsSlice.actions;
 export default filmsSlice.reducer;
