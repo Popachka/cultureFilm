@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,8 +10,13 @@ import Card from '../Card';
 function FilmsSection() {
   const dispatch = useDispatch();
   const valueSearch = useSelector((state) => state.search.value);
+  const selected = useSelector((state) => state.search.selected);
   const countryItems = useSelector((state) => state.country.countryItems);
-  const countryNames = countryItems.map((obj) => obj.country);
+  const countryNames = useMemo(() => {
+    console.log(countryItems);
+    const newItems = countryItems.map((obj) => obj.country);
+    return newItems;
+  }, [countryItems]);
   const items = useSelector((state) => state.films.items);
   useEffect(() => {
     dispatch(fetchFilms());
@@ -26,7 +31,8 @@ function FilmsSection() {
   return (
     <section className="filmsSection">
       <div className="container films-container">
-        {items &&
+        {selected === 1 &&
+          items &&
           items.map((obj, i) => {
             console.log(obj);
             return <Card key={i} {...obj} />;

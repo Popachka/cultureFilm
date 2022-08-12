@@ -4,9 +4,9 @@ const initialState = {
   status: 'loading',
   countryItems: [],
 };
-export const fetchCountry = createAsyncThunk('country/fetchCountry', async (country) => {
+export const fetchCountry = createAsyncThunk('country/fetchCountry', async (valueSearch) => {
   const { data } = await axios.get(
-    `https://62f2850eb1098f150814b69a.mockapi.io/country?filter=${country}`,
+    `https://62f2850eb1098f150814b69a.mockapi.io/country?filter=${valueSearch}`,
   );
   return data;
 });
