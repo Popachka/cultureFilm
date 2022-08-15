@@ -1,12 +1,19 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setOpen } from '../../redux/slice/filmsSlice';
+
 import PopupCard from './PopupCard';
 
-function Card({ title, posters, flag }) {
+function Card({ id, title, posters, flag }) {
   const [open, setOpen] = useState(false);
-  const dispatch = useDispatch();
+
+  const onClickCard = () => {
+    setOpen(true);
+  };
+  const onOverlayClick = (e) => {
+    setOpen(false);
+
+    e.stopPropagation();
+  };
   return (
     <div className="card-wrap">
       <article className="card films__card">
@@ -16,13 +23,17 @@ function Card({ title, posters, flag }) {
         </div>
         <h1 className="card__title">{title}</h1>
         <img
-          onClick={() => setOpen(true)}
+          onClick={onClickCard}
           src={require(`../../img/ui/downloading.png`)}
           alt=""
           className="card__download"
         />
       </article>
-      {open && <PopupCard title={title} posters={posters} flag={flag} />}
+      {open && (
+        <div onClick={onOverlayClick} class="popup-fade">
+          <PopupCard id={id} title={title} posters={posters} flag={flag} />
+        </div>
+      )}
     </div>
   );
 }
